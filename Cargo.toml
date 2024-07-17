@@ -1,0 +1,16 @@
+[package]
+name = "pmapi-rs"
+version = "0.1.0"
+authors = ["Jose Fernandez <me@jrfernandez.com>"]
+license = "LGPL-2.1-or-later"
+description = "Safe and idiomatic wrapper for the Performance Metrics API (PMAPI)"
+repository = "https://github.com/jfernandez/pmapi-rs"
+readme = "README.md"
+keywords = ["pmapi", "performance", "metrics", "pcp"]
+categories = ["api-bindings"]
+edition = "2021"
+publish = ["crates-io"]
+
+[dependencies]
+pmapi-sys = "0.1.1"
+thiserror = "1.0.62"
