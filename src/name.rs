@@ -15,13 +15,13 @@ pub fn lookup_name(metric_name: &str) -> Result<u32, NameError> {
         Ok(name) => name,
         Err(err) => return Err(NameError::InvalidMetricName(err.to_string())),
     };
-    let mut c_metric_name_ptr = c_metric_name.as_ptr();
+    let mut c_metric_name_ptr = c_metric_name.as_ptr() as *mut c_char;
     let mut metric_id = pmID::default();
 
     let sts = unsafe {
         pmLookupName(
             1,
-            &mut c_metric_name_ptr as *mut *const c_char,
+            &mut c_metric_name_ptr,
             &mut metric_id,
         )
     };
